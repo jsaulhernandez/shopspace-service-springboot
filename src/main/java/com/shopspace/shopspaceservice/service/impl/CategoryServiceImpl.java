@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -17,12 +18,33 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryRepository categoryRepository;
 
     @Override
-    public List<Category> getCategories(){
-        return categoryRepository.findByStatus(1);
+    public Page<Category> getPagedCategories(String search, Integer page, Integer size){
+            return categoryRepository.getAllCategories(search, PageRequest.of(page, size));
     }
 
     @Override
-    public Page<Category> getPagedCategories(String search, Integer page, Integer size){
-            return categoryRepository.getAllCategories(search, PageRequest.of(page, size));
+    public Optional<Category> getCategoryById(Long id){
+        return categoryRepository.findById(id);
+    }
+
+    @Override
+    public Category create(Category category){
+        return categoryRepository.save(category);
+    }
+
+    @Override
+    public Boolean delete(Long id){
+        try {
+            categoryRepository.deleteById(id);
+            return true;
+        }catch (Exception e){
+            System.out.println("Exception {}" + e);
+            return false;
+        }
+    }
+
+    @Override
+    public List<Category> getCategories(){
+        return categoryRepository.findByStatus(1);
     }
 }
