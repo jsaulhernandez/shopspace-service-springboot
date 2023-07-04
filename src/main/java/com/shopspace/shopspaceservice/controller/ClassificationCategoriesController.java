@@ -21,7 +21,7 @@ public class ClassificationCategoriesController {
     }
 
     @GetMapping(path = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public Optional<ClassificationCategories> getOneClassificationCategories(@PathVariable("id") Long id){
+    public Optional<ClassificationCategories> getOneClassificationCategories(@PathVariable("id") Long id) {
         return classificationCategoriesService.getClassificationCategoriesById(id);
     }
 

@@ -16,12 +16,12 @@ public class CategoriesController {
     CategoriesService categoriesService;
 
     @GetMapping(path = "/paged", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public Page<Categories> getPagedCategories(@RequestParam(value = "search", defaultValue = "") String search, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size){
+    public Page<Categories> getPagedCategories(@RequestParam(value = "search", defaultValue = "") String search, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
         return categoriesService.getPagedCategories(search, page, size);
     }
 
     @GetMapping(path = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public Optional<Categories> getOneCategories(@PathVariable("id") Long id){
+    public Optional<Categories> getOneCategories(@PathVariable("id") Long id) {
         return categoriesService.getCategoriesById(id);
     }
 

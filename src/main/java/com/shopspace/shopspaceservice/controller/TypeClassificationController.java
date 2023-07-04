@@ -21,7 +21,7 @@ public class TypeClassificationController {
     }
 
     @GetMapping(path = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public Optional<TypeClassification> getOneTypeClassification(@PathVariable("id") Long id){
+    public Optional<TypeClassification> getOneTypeClassification(@PathVariable("id") Long id) {
         return typeClassificationService.getTypeClassificationById(id);
     }
 
