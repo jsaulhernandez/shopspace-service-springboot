@@ -31,8 +31,7 @@ public class CategoryController {
         return categoryService.create(category);
     }
 
-    @DeleteMapping(path = "/delete/{id}", produces = { MediaType.APPLICATION_JSON_VALUE,
-            MediaType.APPLICATION_XML_VALUE })
+    @DeleteMapping(path = "/delete/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public Boolean delete(@PathVariable("id") Long id){
         return categoryService.delete(id);
     }
