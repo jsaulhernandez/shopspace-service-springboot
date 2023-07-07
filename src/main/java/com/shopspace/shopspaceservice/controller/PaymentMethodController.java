@@ -1,8 +1,6 @@
 package com.shopspace.shopspaceservice.controller;
 
-import com.shopspace.shopspaceservice.model.Brand;
 import com.shopspace.shopspaceservice.model.PaymentMethod;
-import com.shopspace.shopspaceservice.model.Product;
 import com.shopspace.shopspaceservice.service.PaymentMethodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
