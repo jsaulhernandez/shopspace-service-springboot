@@ -43,4 +43,9 @@ public class UserAdminServiceImpl implements UserAdminService {
             return false;
         }
     }
+
+    @Override
+    public Optional<UserAdmin> getUserAdminByEmail(String userEmail){
+        return userAdminRepository.findByEmail(userEmail);
+    }
 }

@@ -13,4 +13,6 @@ public interface UserAdminService {
     UserAdmin create(UserAdmin userAdmin);
 
     Boolean delete(Long id);
+
+    Optional<UserAdmin> getUserAdminByEmail(String userEmail);
 }

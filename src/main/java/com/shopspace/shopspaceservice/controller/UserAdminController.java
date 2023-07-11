@@ -33,4 +33,9 @@ public class UserAdminController {
     public Boolean delete(@PathVariable("id") Long id){
         return userAdminService.delete(id);
     }
+
+    @GetMapping(path = "/email/{email}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public Optional<UserAdmin> getOneUserAdminByEmail(@PathVariable("email") String email) {
+        return userAdminService.getUserAdminByEmail(email);
+    }
 }
