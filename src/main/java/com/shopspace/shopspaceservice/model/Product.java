@@ -31,11 +31,14 @@ public class Product {
     @ManyToMany
     @JoinTable(name = "ss_color_product", joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "color_id", referencedColumnName = "id"))
     List<Color> colors;
+    @ManyToOne()
+    @JoinColumn(name = "type_classification_id")
+    private TypeClassification typeClassification;
 
     public Product() {
     }
 
-    public Product(Long id, String name, String title, String description, BigDecimal price, Integer stock, String model, String modelNumber, Date releaseDate, List<ProductDetail> productDetails, Brand brand, List<Color> colors) {
+    public Product(Long id, String name, String title, String description, BigDecimal price, Integer stock, String model, String modelNumber, Date releaseDate, List<ProductDetail> productDetails, Brand brand, List<Color> colors, TypeClassification typeClassification) {
         this.id = id;
         this.name = name;
         this.title = title;
@@ -48,6 +51,7 @@ public class Product {
         this.productDetails = productDetails;
         this.brand = brand;
         this.colors = colors;
+        this.typeClassification = typeClassification;
     }
 
     public Long getId() {
@@ -146,6 +150,14 @@ public class Product {
         this.colors = colors;
     }
 
+    public TypeClassification getTypeClassification() {
+        return typeClassification;
+    }
+
+    public void setTypeClassification(TypeClassification typeClassification) {
+        this.typeClassification = typeClassification;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -161,6 +173,7 @@ public class Product {
                 ", productDetails=" + productDetails +
                 ", brand=" + brand +
                 ", colors=" + colors +
+                ", typeClassification=" + typeClassification +
                 '}';
     }
 }

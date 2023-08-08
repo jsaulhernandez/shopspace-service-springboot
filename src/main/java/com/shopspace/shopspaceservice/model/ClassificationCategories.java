@@ -11,7 +11,7 @@ public class ClassificationCategories {
     private String name;
     private Integer status;
     @ManyToOne()
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "categories_id")
     private Categories categories;
 
     public ClassificationCategories() {

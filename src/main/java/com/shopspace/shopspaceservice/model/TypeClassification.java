@@ -11,7 +11,7 @@ public class TypeClassification {
     private String name;
     private Integer status;
     @ManyToOne()
-    @JoinColumn(name = "category_id")
+    @JoinColumn(name = "classification_categories_id")
     private ClassificationCategories classificationCategories;
 
     public TypeClassification() {
