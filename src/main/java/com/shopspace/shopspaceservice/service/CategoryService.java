@@ -11,5 +11,5 @@ public interface CategoryService {
     Optional<Category> getCategoryById(Long id);
     Category create(Category category);
     Boolean delete(Long id);
-    List<Category> getCategories();
+    List<Category> getCategoriesByStatus(Integer status);
 }

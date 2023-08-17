@@ -36,8 +36,8 @@ public class CategoryController {
         return categoryService.delete(id);
     }
 
-    @GetMapping(path = "/active", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public List<Category> getCategories(){
-        return categoryService.getCategories();
+    @GetMapping(path = "/by-status", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public List<Category> getCategoriesByStatus(@RequestParam(value = "status", defaultValue = "1") Integer status){
+        return categoryService.getCategoriesByStatus(status);
     }
 }

@@ -47,7 +47,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getCategories(){
-        return categoryRepository.findByStatus(1);
+    public List<Category> getCategoriesByStatus(Integer status){
+        return categoryRepository.findByStatus(status);
     }
 }

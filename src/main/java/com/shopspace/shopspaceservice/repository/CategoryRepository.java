@@ -12,7 +12,9 @@ import java.util.List;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
-    List<Category> findByStatus(Integer status);
     @Query("SELECT c FROM Category c WHERE (:search IS NULL or c.name LIKE CONCAT('%', :search, '%')) ORDER BY c.id DESC")
     Page<Category> getAllCategories(@Param("search") String Search, Pageable pageable);
+
+    //Methods for web
+    List<Category> findByStatus(Integer status);
 }
