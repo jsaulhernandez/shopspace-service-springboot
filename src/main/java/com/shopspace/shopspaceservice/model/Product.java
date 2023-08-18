@@ -17,41 +17,39 @@ public class Product {
     private String title;
     private String description;
     private BigDecimal price;
-    private Integer stock;
     private String model;
     private String modelNumber;
     @Convert(converter = DateConverter.class)
     private Date releaseDate;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
+    private List<ViewProduct> viewProducts;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
     private List<ProductDetail> productDetails;
-    @ManyToOne()
-    @JoinColumn(name = "brand_id")
-    private Brand brand;
-    @ManyToMany
-    @JoinTable(name = "ss_color_product", joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "color_id", referencedColumnName = "id"))
-    List<Color> colors;
     @ManyToOne()
     @JoinColumn(name = "type_classification_id")
     private TypeClassification typeClassification;
+    @ManyToOne()
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
 
     public Product() {
     }
 
-    public Product(Long id, String name, String title, String description, BigDecimal price, Integer stock, String model, String modelNumber, Date releaseDate, List<ProductDetail> productDetails, Brand brand, List<Color> colors, TypeClassification typeClassification) {
+    public Product(Long id, String name, String title, String description, BigDecimal price, String model, String modelNumber, Date releaseDate, List<ViewProduct> viewProducts, List<ProductDetail> productDetails, TypeClassification typeClassification, Brand brand) {
         this.id = id;
         this.name = name;
         this.title = title;
         this.description = description;
         this.price = price;
-        this.stock = stock;
         this.model = model;
         this.modelNumber = modelNumber;
         this.releaseDate = releaseDate;
+        this.viewProducts = viewProducts;
         this.productDetails = productDetails;
-        this.brand = brand;
-        this.colors = colors;
         this.typeClassification = typeClassification;
+        this.brand = brand;
     }
 
     public Long getId() {
@@ -94,14 +92,6 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getStock() {
-        return stock;
-    }
-
-    public void setStock(Integer stock) {
-        this.stock = stock;
-    }
-
     public String getModel() {
         return model;
     }
@@ -126,28 +116,20 @@ public class Product {
         this.releaseDate = releaseDate;
     }
 
+    public List<ViewProduct> getViewProducts() {
+        return viewProducts;
+    }
+
+    public void setViewProducts(List<ViewProduct> viewProducts) {
+        this.viewProducts = viewProducts;
+    }
+
     public List<ProductDetail> getProductDetails() {
         return productDetails;
     }
 
     public void setProductDetails(List<ProductDetail> productDetails) {
         this.productDetails = productDetails;
-    }
-
-    public Brand getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Brand brand) {
-        this.brand = brand;
-    }
-
-    public List<Color> getColors() {
-        return colors;
-    }
-
-    public void setColors(List<Color> colors) {
-        this.colors = colors;
     }
 
     public TypeClassification getTypeClassification() {
@@ -158,6 +140,14 @@ public class Product {
         this.typeClassification = typeClassification;
     }
 
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -166,14 +156,13 @@ public class Product {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", stock=" + stock +
                 ", model='" + model + '\'' +
                 ", modelNumber='" + modelNumber + '\'' +
                 ", releaseDate=" + releaseDate +
+                ", viewProducts=" + viewProducts +
                 ", productDetails=" + productDetails +
-                ", brand=" + brand +
-                ", colors=" + colors +
                 ", typeClassification=" + typeClassification +
+                ", brand=" + brand +
                 '}';
     }
 }
