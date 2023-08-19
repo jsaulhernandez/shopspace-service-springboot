@@ -46,8 +46,14 @@ public class CategoryServiceImpl implements CategoryService {
         }
     }
 
+    //Methods for web
     @Override
     public List<Category> getCategoriesByStatus(Integer status){
         return categoryRepository.findByStatus(status);
+    }
+
+    @Override
+    public List<Category> getTopCategories(Integer totalSales){
+        return categoryRepository.getTopCategories(totalSales);
     }
 }

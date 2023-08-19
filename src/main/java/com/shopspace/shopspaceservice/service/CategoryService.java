@@ -12,4 +12,5 @@ public interface CategoryService {
     Category create(Category category);
     Boolean delete(Long id);
     List<Category> getCategoriesByStatus(Integer status);
+    List<Category> getTopCategories(Integer totalSales);
 }
