@@ -10,14 +10,17 @@ public class PaymentMethod {
     private Long id;
     private String name;
     private Integer status;
+    @Column(nullable = false)
+    private Integer isCreditDebitCard;
 
     public PaymentMethod() {
     }
 
-    public PaymentMethod(Long id, String name, Integer status) {
+    public PaymentMethod(Long id, String name, Integer status, Integer isCreditDebitCard) {
         this.id = id;
         this.name = name;
         this.status = status;
+        this.isCreditDebitCard = isCreditDebitCard;
     }
 
     public Long getId() {
@@ -44,12 +47,21 @@ public class PaymentMethod {
         this.status = status;
     }
 
+    public Integer getIsCreditDebitCard() {
+        return isCreditDebitCard;
+    }
+
+    public void setIsCreditDebitCard(Integer isCreditDebitCard) {
+        this.isCreditDebitCard = isCreditDebitCard;
+    }
+
     @Override
     public String toString() {
         return "PaymentMethod{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", status=" + status +
+                ", isCreditDebitCard=" + isCreditDebitCard +
                 '}';
     }
 }
