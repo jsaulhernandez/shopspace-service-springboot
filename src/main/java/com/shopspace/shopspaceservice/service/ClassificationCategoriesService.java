@@ -3,6 +3,7 @@ package com.shopspace.shopspaceservice.service;
 import com.shopspace.shopspaceservice.model.ClassificationCategories;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ClassificationCategoriesService {
@@ -13,4 +14,6 @@ public interface ClassificationCategoriesService {
     ClassificationCategories create(ClassificationCategories classificationCategories);
 
     Boolean delete(Long id);
+
+    List<ClassificationCategories> getClassificationCategoriesByStatus(Integer status);
 }

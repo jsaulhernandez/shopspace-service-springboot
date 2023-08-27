@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,5 +43,10 @@ public class CategoriesServiceImpl implements CategoriesService {
             logger.error("Exception delete categories -> {0}", e);
             return false;
         }
+    }
+
+    @Override
+    public List<Categories> getCategoriesByStatus(Integer status){
+        return categoriesRepository.findByStatus(status);
     }
 }

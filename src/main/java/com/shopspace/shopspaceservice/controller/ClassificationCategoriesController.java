@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -33,5 +34,10 @@ public class ClassificationCategoriesController {
     @DeleteMapping(path = "/delete/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public Boolean delete(@PathVariable("id") Long id){
         return classificationCategoriesService.delete(id);
+    }
+
+    @GetMapping(path = "/by-status", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public List<ClassificationCategories> getClassificationCategoriesByStatus(@RequestParam(value = "status", defaultValue = "1") Integer status) {
+        return classificationCategoriesService.getClassificationCategoriesByStatus(status);
     }
 }

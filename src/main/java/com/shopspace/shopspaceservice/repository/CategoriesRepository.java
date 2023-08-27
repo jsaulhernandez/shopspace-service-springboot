@@ -14,5 +14,5 @@ public interface CategoriesRepository extends JpaRepository<Categories, Long> {
     Page<Categories> getAllCategories(@Param("search") String Search, Pageable pageable);
 
     // Methods for web
-    List<Categories> findAllByStatus(Integer status);
+    List<Categories> findByStatus(Integer status);
 }
