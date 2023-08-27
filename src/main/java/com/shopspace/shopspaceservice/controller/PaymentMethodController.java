@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -34,5 +35,11 @@ public class PaymentMethodController {
     @DeleteMapping(path = "/delete/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public Boolean delete(@PathVariable("id") Long id){
         return paymentMethodService.delete(id);
+    }
+
+    //Methods for web
+    @GetMapping(path = "/by-status", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public List<PaymentMethod> getPaymentMethodsByStatus(@RequestParam(value = "status", defaultValue = "1") Integer status){
+        return paymentMethodService.getPaymentMethodsByStatus(status);
     }
 }
