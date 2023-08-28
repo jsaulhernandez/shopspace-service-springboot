@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,5 +43,10 @@ public class BrandServiceImpl implements BrandService {
             logger.error("Exception delete brand -> {0}", e);
             return false;
         }
+    }
+
+    @Override
+    public List<Brand> getBrandsByStatus(Integer status){
+        return brandRepository.findByStatus(status);
     }
 }
