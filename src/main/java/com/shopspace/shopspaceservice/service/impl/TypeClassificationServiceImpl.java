@@ -25,7 +25,7 @@ public class TypeClassificationServiceImpl implements TypeClassificationService 
     }
 
     @Override
-    public List<TypeClassification> geTypesClassificationsByStatus(Integer status){
+    public List<TypeClassification> getTypesClassificationsByStatus(Integer status){
         return typeClassificationRepository.findByStatus(status);
     }
 

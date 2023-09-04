@@ -9,7 +9,7 @@ import java.util.Optional;
 public interface TypeClassificationService {
     Page<TypeClassification> getPagedTypesClassifications(String search, Integer page, Integer size);
 
-    List<TypeClassification> geTypesClassificationsByStatus(Integer status);
+    List<TypeClassification> getTypesClassificationsByStatus(Integer status);
 
     Optional<TypeClassification> getTypeClassificationById(Long id);
 

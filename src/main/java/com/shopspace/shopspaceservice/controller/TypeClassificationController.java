@@ -22,8 +22,8 @@ public class TypeClassificationController {
     }
 
     @GetMapping(path = "/by-status", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public List<TypeClassification> geTypesClassificationsByStatus(@RequestParam(value = "status", defaultValue = "1") Integer status){
-        return typeClassificationService.geTypesClassificationsByStatus(status);
+    public List<TypeClassification> getTypesClassificationsByStatus(@RequestParam(value = "status", defaultValue = "1") Integer status){
+        return typeClassificationService.getTypesClassificationsByStatus(status);
     }
 
     @GetMapping(path = "/{id}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
