@@ -10,6 +10,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,11 @@ public class TypeClassificationServiceImpl implements TypeClassificationService 
     @Override
     public Page<TypeClassification> getPagedTypesClassifications(String search, Integer page, Integer size){
         return typeClassificationRepository.getAllTypesClassifications(search, PageRequest.of(page, size));
+    }
+
+    @Override
+    public List<TypeClassification> geTypesClassificationsByStatus(Integer status){
+        return typeClassificationRepository.findByStatus(status);
     }
 
     @Override
