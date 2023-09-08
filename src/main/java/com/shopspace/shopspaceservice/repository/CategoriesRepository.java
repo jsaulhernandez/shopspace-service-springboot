@@ -6,9 +6,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface CategoriesRepository extends JpaRepository<Categories, Long> {
     @Query("SELECT c FROM Categories c WHERE (:search IS NULL or c.name LIKE CONCAT('%', :search, '%')) ORDER BY c.id DESC")
     Page<Categories> getAllCategories(@Param("search") String Search, Pageable pageable);
