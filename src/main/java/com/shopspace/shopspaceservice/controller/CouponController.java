@@ -25,6 +25,11 @@ public class CouponController {
         return couponService.getCouponById(id);
     }
 
+    @GetMapping(path = "/code/{code}", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public Optional<Coupon> getCouponByCode(@PathVariable("code") String code){
+        return couponService.getCouponByCode(code);
+    }
+
     @PostMapping(path = "/create", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public Coupon create(@RequestBody Coupon coupon){
         return couponService.create(coupon);

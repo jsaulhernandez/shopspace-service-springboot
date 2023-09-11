@@ -10,6 +10,8 @@ public interface CouponService {
 
     Optional<Coupon> getCouponById(Long id);
 
+    Optional<Coupon> getCouponByCode(String code);
+
     Coupon create(Coupon coupon);
 
     Boolean delete(Long id);

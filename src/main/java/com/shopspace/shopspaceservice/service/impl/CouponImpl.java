@@ -29,6 +29,11 @@ public class CouponImpl implements CouponService {
     }
 
     @Override
+    public Optional<Coupon> getCouponByCode(String code){
+        return couponRepository.findByCode(code);
+    }
+
+    @Override
     public Coupon create(Coupon coupon){
         return couponRepository.save(coupon);
     }
