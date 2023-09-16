@@ -12,5 +12,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Query("SELECT ct FROM Customer ct WHERE (:search IS NULL OR (CONCAT(ct.firstName, ' ', ct.lastName) LIKE CONCAT('%', :search, '%') OR ct.email LIKE CONCAT('%', :search, '%') OR ct.mobile LIKE CONCAT('%', :search, '%'))) ORDER BY ct.id DESC")
-    Page<UserCustomer> getAllCustomers(@Param("search") String Search, Pageable pageable);
+    Page<Customer> getAllCustomers(@Param("search") String Search, Pageable pageable);
 }

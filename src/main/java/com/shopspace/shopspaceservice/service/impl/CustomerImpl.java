@@ -1,6 +1,6 @@
 package com.shopspace.shopspaceservice.service.impl;
 
-import com.shopspace.shopspaceservice.model.UserCustomer;
+import com.shopspace.shopspaceservice.model.Customer;
 import com.shopspace.shopspaceservice.repository.CustomerRepository;
 import com.shopspace.shopspaceservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class CustomerImpl implements CustomerService {
     CustomerRepository customerRepository;
 
     @Override
-    public Page<UserCustomer> getAllPagedCustomers(String search, Integer page, Integer size){
+    public Page<Customer> getAllPagedCustomers(String search, Integer page, Integer size){
         return customerRepository.getAllCustomers(search, PageRequest.of(page, size));
     }
 }
