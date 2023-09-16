@@ -8,13 +8,25 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CustomerImpl implements CustomerService {
     @Autowired
-    UserCustomerRepository customerRepository;
+    UserCustomerRepository userCustomerRepository;
 
     @Override
         public Page<UserCustomer> getAllPagedUsersCustomers(String search, Integer page, Integer size){
-        return customerRepository.getAllUsersCustomers(search, PageRequest.of(page, size));
+        return userCustomerRepository.getAllUsersCustomers(search, PageRequest.of(page, size));
+    }
+
+    @Override
+    public Optional<UserCustomer> getUserCustomerById(Long id){
+        return userCustomerRepository.findById(id);
+    }
+
+    @Override
+    public UserCustomer create(UserCustomer userCustomer){
+        return userCustomerRepository.save(userCustomer);
     }
 }
