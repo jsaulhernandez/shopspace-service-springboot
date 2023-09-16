@@ -1,8 +1,8 @@
 package com.shopspace.shopspaceservice.service;
 
-import com.shopspace.shopspaceservice.model.Customer;
+import com.shopspace.shopspaceservice.model.UserCustomer;
 import org.springframework.data.domain.Page;
 
 public interface CustomerService {
-    Page<Customer> getAllPagedCustomers(String search, Integer page, Integer size);
+    Page<UserCustomer> getAllPagedUsersCustomers(String search, Integer page, Integer size);
 }

@@ -1,6 +1,6 @@
 package com.shopspace.shopspaceservice.controller;
 
-import com.shopspace.shopspaceservice.model.Customer;
+import com.shopspace.shopspaceservice.model.UserCustomer;
 import com.shopspace.shopspaceservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,7 +17,7 @@ public class CustomerController {
     CustomerService customerService;
 
     @GetMapping(path = "/paged", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
-    public Page<Customer> getPagedCustomers(@RequestParam(value = "search", defaultValue = "") String search, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size){
-        return customerService.getAllPagedCustomers(search, page, size);
+    public Page<UserCustomer> getAllPagedUsersCustomers(@RequestParam(value = "search", defaultValue = "") String search, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size){
+        return customerService.getAllPagedUsersCustomers(search, page, size);
     }
 }
