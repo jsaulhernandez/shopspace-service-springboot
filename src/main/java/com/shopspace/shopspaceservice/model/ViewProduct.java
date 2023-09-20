@@ -11,19 +11,17 @@ public class ViewProduct {
     private String image;
     private String color;
     private Integer stock;
-    private Integer status;
     @Column(name = "product_id")
     private Long productId;
 
     public ViewProduct() {
     }
 
-    public ViewProduct(Long id, String image, String color, Integer stock, Integer status, Long productId) {
+    public ViewProduct(Long id, String image, String color, Integer stock, Long productId) {
         this.id = id;
         this.image = image;
         this.color = color;
         this.stock = stock;
-        this.status = status;
         this.productId = productId;
     }
 
@@ -59,19 +57,22 @@ public class ViewProduct {
         this.stock = stock;
     }
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
     public Long getProductId() {
         return productId;
     }
 
     public void setProductId(Long productId) {
         this.productId = productId;
+    }
+
+    @Override
+    public String toString() {
+        return "ViewProduct{" +
+                "id=" + id +
+                ", image='" + image + '\'' +
+                ", color='" + color + '\'' +
+                ", stock=" + stock +
+                ", productId=" + productId +
+                '}';
     }
 }

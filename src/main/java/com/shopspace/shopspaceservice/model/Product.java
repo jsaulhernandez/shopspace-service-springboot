@@ -22,6 +22,7 @@ public class Product {
     private String modelNumber;
     @Convert(converter = DateConverter.class)
     private Date releaseDate;
+    private Integer status;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id")
     private List<ViewProduct> viewProducts;
@@ -38,15 +39,16 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long id, String name, String title, String description, BigDecimal price, String model, String modelNumber, Date releaseDate, List<ViewProduct> viewProducts, List<ProductDetail> productDetails, TypeClassification typeClassification, Brand brand) {
+    public Product(Long id, String title, String name, String description, BigDecimal price, String model, String modelNumber, Date releaseDate, Integer status, List<ViewProduct> viewProducts, List<ProductDetail> productDetails, TypeClassification typeClassification, Brand brand) {
         this.id = id;
-        this.name = name;
         this.title = title;
+        this.name = name;
         this.description = description;
         this.price = price;
         this.model = model;
         this.modelNumber = modelNumber;
         this.releaseDate = releaseDate;
+        this.status = status;
         this.viewProducts = viewProducts;
         this.productDetails = productDetails;
         this.typeClassification = typeClassification;
@@ -61,20 +63,20 @@ public class Product {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getTitle() {
         return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -117,6 +119,14 @@ public class Product {
         this.releaseDate = releaseDate;
     }
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public List<ViewProduct> getViewProducts() {
         return viewProducts;
     }
@@ -153,13 +163,14 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", title='" + title + '\'' +
+                ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
                 ", model='" + model + '\'' +
                 ", modelNumber='" + modelNumber + '\'' +
                 ", releaseDate=" + releaseDate +
+                ", status=" + status +
                 ", viewProducts=" + viewProducts +
                 ", productDetails=" + productDetails +
                 ", typeClassification=" + typeClassification +
