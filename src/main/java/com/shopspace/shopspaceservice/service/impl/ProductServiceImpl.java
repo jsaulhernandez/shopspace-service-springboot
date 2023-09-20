@@ -8,8 +8,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -42,5 +44,17 @@ public class ProductServiceImpl implements ProductService {
             logger.error("Exception delete product -> {0}", e);
             return false;
         }
+    }
+
+    // Todo: methods for web site
+    /**
+     *
+     * @param page contains the initial page
+     * @param size limit of records to return
+     * @return list with the limit of requested records
+     */
+    @Override
+    public List<Product> getLastProductsWithLimit(Integer page, Integer size) {
+        return productRepository.getLastProductsWithLimit(PageRequest.of(page, size));
     }
 }
