@@ -9,14 +9,16 @@ public class Brand {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String image;
     private Integer status;
 
     public Brand() {
     }
 
-    public Brand(Long id, String name, Integer status) {
+    public Brand(Long id, String name, String image, Integer status) {
         this.id = id;
         this.name = name;
+        this.image = image;
         this.status = status;
     }
 
@@ -36,6 +38,14 @@ public class Brand {
         this.name = name;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -49,6 +59,7 @@ public class Brand {
         return "Brand{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
                 ", status=" + status +
                 '}';
     }

@@ -9,14 +9,16 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String image;
     private Integer status;
 
     public Category() {
     }
 
-    public Category(Long id, String name, Integer status) {
+    public Category(Long id, String name, String image, Integer status) {
         this.id = id;
         this.name = name;
+        this.image = image;
         this.status = status;
     }
 
@@ -36,6 +38,14 @@ public class Category {
         this.name = name;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -49,6 +59,7 @@ public class Category {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", image='" + image + '\'' +
                 ", status=" + status +
                 '}';
     }

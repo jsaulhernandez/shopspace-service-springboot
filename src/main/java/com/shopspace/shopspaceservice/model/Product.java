@@ -23,10 +23,10 @@ public class Product {
     @Convert(converter = DateConverter.class)
     private Date releaseDate;
     private Integer status;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "product_id")
     private List<ViewProduct> viewProducts;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "product_id")
     private List<ProductDetail> productDetails;
     @ManyToOne()
