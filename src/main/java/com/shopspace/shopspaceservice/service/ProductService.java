@@ -18,4 +18,6 @@ public interface ProductService {
 
     // Todo: methods for web site
     List<Product> getLastProductsWithLimit(Integer page, Integer size);
+
+    List<Product> getProductsByCategoryWithLimit(Integer category, Integer page, Integer size);
 }

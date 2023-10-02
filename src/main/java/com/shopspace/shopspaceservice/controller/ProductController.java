@@ -40,4 +40,9 @@ public class ProductController {
     public List<Product> getLastProductsWithLimit(@RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
         return productService.getLastProductsWithLimit(page, size);
     }
+
+    @GetMapping(path = "/by-category", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public List<Product> getProductsByCategoryWithLimit(@RequestParam(value = "idCategory", defaultValue = "0") Integer idCategory, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        return productService.getProductsByCategoryWithLimit(idCategory, page, size);
+    }
 }
