@@ -64,7 +64,7 @@ public class ProductServiceImpl implements ProductService {
      * @return product list by category
      */
     @Override
-    public List<Product> getProductsByCategoryWithLimit(Integer category, Integer page, Integer size) {
+    public List<Product> getProductsByCategoryWithLimit(Long category, Integer page, Integer size) {
         return productRepository.getProductsByCategoryWithLimit(category, PageRequest.of(page, size));
     }
 }
