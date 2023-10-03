@@ -67,4 +67,17 @@ public class ProductServiceImpl implements ProductService {
     public List<Product> getProductsByCategoryWithLimit(Long category, Integer page, Integer size) {
         return productRepository.getProductsByCategoryWithLimit(category, PageRequest.of(page, size));
     }
+
+    /**
+     *
+     * @param idProduct idProduct that will not include in the list
+     * @param typeClassification filter type to products, contains id of type classification
+     * @param page contains the initial page
+     * @param size limit of records to return
+     * @return product list by typeClassification
+     */
+    @Override
+    public List<Product> getProductsByTypeClassificationWithLimit(Long idProduct, Long typeClassification, Integer page, Integer size) {
+        return productRepository.getProductsByTypeClassificationWithLimit(idProduct, typeClassification, PageRequest.of(page, size));
+    }
 }

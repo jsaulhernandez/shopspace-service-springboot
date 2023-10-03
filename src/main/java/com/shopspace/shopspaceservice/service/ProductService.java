@@ -20,4 +20,6 @@ public interface ProductService {
     List<Product> getLastProductsWithLimit(Integer page, Integer size);
 
     List<Product> getProductsByCategoryWithLimit(Long category, Integer page, Integer size);
+
+    List<Product> getProductsByTypeClassificationWithLimit(Long idProduct, Long typeClassification, Integer page, Integer size);
 }

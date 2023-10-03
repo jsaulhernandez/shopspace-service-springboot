@@ -21,4 +21,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("SELECT DISTINCT p FROM Product p JOIN p.viewProducts vp JOIN p.typeClassification tc join tc.classificationCategories cc join cc.categories ct join ct.category c WHERE p.status = 1 AND vp.stock > 0 AND (:idCategory IS NULL OR c.id = :idCategory) ORDER BY p.id DESC")
     List<Product> getProductsByCategoryWithLimit(@Param("idCategory") Long idCategory, Pageable pageable);
+
+    @Query("SELECT DISTINCT p FROM Product p JOIN p.viewProducts vp JOIN p.typeClassification tc WHERE p.status = 1 AND p.id != :idProduct AND vp.stock > 0 AND tc.id = :idTypeClassification ORDER BY p.id DESC")
+    List<Product> getProductsByTypeClassificationWithLimit(@Param("idProduct") Long idProduct, @Param("idTypeClassification") Long idTypeClassification, Pageable pageable);
 }
