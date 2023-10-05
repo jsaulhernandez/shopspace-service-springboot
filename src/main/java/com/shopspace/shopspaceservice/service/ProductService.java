@@ -22,4 +22,6 @@ public interface ProductService {
     List<Product> getProductsByCategoryWithLimit(Long category, Integer page, Integer size);
 
     List<Product> getProductsByTypeClassificationWithLimit(Long idProduct, Long typeClassification, Integer page, Integer size);
+
+    List<Product> getProductsByWeekWithLimit(Integer totalSales, Integer page, Integer size);
 }

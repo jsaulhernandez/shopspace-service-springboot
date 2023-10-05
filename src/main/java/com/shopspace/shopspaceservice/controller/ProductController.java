@@ -50,4 +50,9 @@ public class ProductController {
     public List<Product> getProductsByTypeClassificationWithLimit(@RequestParam(value = "idProduct") Long idProduct, @RequestParam(value = "idTypeClassification") Long idTypeClassification, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
         return productService.getProductsByTypeClassificationWithLimit(idProduct, idTypeClassification, page, size);
     }
+
+    @GetMapping(path = "/by-week", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public List<Product> getProductsByWeekWithLimit(@RequestParam(value = "totalSales") Integer totalSales, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        return productService.getProductsByWeekWithLimit(totalSales, page, size);
+    }
 }
