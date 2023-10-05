@@ -24,4 +24,6 @@ public interface ProductService {
     List<Product> getProductsByTypeClassificationWithLimit(Long idProduct, Long typeClassification, Integer page, Integer size);
 
     List<Product> getProductsByWeekWithLimit(Integer totalSales, Integer page, Integer size);
+
+    List<Product> getMostSellingProducts(Integer totalSales, Integer page, Integer size);
 }

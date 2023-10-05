@@ -55,4 +55,9 @@ public class ProductController {
     public List<Product> getProductsByWeekWithLimit(@RequestParam(value = "totalSales") Integer totalSales, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
         return productService.getProductsByWeekWithLimit(totalSales, page, size);
     }
+
+    @GetMapping(path = "/most-selling", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public List<Product> getMostSellingProducts(@RequestParam(value = "totalSales") Integer totalSales, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        return productService.getMostSellingProducts(totalSales, page, size);
+    }
 }
