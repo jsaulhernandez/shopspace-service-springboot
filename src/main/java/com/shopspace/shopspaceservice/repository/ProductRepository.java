@@ -25,6 +25,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     @Query("SELECT DISTINCT p FROM Product p JOIN p.viewProducts vp JOIN p.typeClassification tc WHERE p.status = 1 AND p.id != :idProduct AND vp.stock > 0 AND tc.id = :idTypeClassification ORDER BY p.id DESC")
     List<Product> getProductsByTypeClassificationWithLimit(@Param("idProduct") Long idProduct, @Param("idTypeClassification") Long idTypeClassification, Pageable pageable);
 
-    @Query(value = "SELECT DISTINCT sp.* FROM ss_product sp INNER JOIN ss_view_product svp ON svp.product_id = sp.id WHERE sp.status = 1 AND svp.stock > 0 AND YEARWEEK(sp.release_date) = YEARWEEK(NOW()) AND( SELECT COUNT(svp2.id) AS total FROM ss_view_product svp2 INNER JOIN ss_sale_body ssb ON ssb.product_id = svp2.product_id AND svp2.product_id = sp.id) >= :totalSales", nativeQuery = true)
+    @Query(value = "SELECT DISTINCT sp.* FROM ss_product sp INNER JOIN ss_view_product svp ON svp.product_id = sp.id WHERE sp.status = 1 AND svp.stock > 0 AND YEARWEEK(sp.release_date) = YEARWEEK(NOW()) AND( SELECT COUNT(svp2.id) AS total FROM ss_view_product svp2 INNER JOIN ss_sale_body ssb ON ssb.product_id = svp2.id AND svp2.product_id = sp.id) >= :totalSales", nativeQuery = true)
     List<Product> getProductsByWeekWithLimit(@Param("totalSales") Integer totalSales, Pageable pageable);
 }

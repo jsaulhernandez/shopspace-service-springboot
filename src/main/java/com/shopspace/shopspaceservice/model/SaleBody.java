@@ -12,7 +12,7 @@ public class SaleBody {
     private Long id;
     @ManyToOne(optional = false)
     @JoinColumn(name = "product_id")
-    private Product product;
+    private ViewProduct product;
     @Column(nullable = false)
     private Integer quantity;
     @Column(precision = 10, scale = 2, nullable = false)
@@ -23,7 +23,7 @@ public class SaleBody {
     public SaleBody() {
     }
 
-    public SaleBody(Long id, Product product, Integer quantity, BigDecimal price, Long saleHeaderId) {
+    public SaleBody(Long id, ViewProduct product, Integer quantity, BigDecimal price, Long saleHeaderId) {
         this.id = id;
         this.product = product;
         this.quantity = quantity;
@@ -39,11 +39,11 @@ public class SaleBody {
         this.id = id;
     }
 
-    public Product getProduct() {
+    public ViewProduct getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public void setProduct(ViewProduct product) {
         this.product = product;
     }
 
