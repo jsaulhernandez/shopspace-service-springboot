@@ -23,7 +23,7 @@ public class SaleHeader {
     @ManyToOne(optional = false)
     @JoinColumn(name = "payment_method_id")
     private PaymentMethod paymentMethod;
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "credit_card_id")
     private CreditCardInformation creditCardInformation;
     @ManyToOne()
@@ -32,7 +32,7 @@ public class SaleHeader {
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "sale_header_id")
     private List<SaleBody> detail;
 
