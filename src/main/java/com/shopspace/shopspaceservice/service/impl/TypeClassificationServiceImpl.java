@@ -49,4 +49,15 @@ public class TypeClassificationServiceImpl implements TypeClassificationService 
             return false;
         }
     }
+
+    // Todo: methods for web site
+    @Override
+    public List<TypeClassification> getMostSellingTypeClassificationWithLimit(Integer totalSales, Integer page, Integer size) {
+        return typeClassificationRepository.getMostSellingTypeClassification(totalSales, PageRequest.of(page, size));
+    }
+
+    @Override
+    public Integer getTypeClassificationAvailableByProduct(Long idTypeClassification){
+        return typeClassificationRepository.getTypeClassificationAvailableByProduct(idTypeClassification);
+    }
 }

@@ -40,4 +40,14 @@ public class TypeClassificationController {
     public Boolean delete(@PathVariable("id") Long id){
         return typeClassificationService.delete(id);
     }
+
+    @GetMapping(path = "/most-selling", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public List<TypeClassification> getMostSellingTypeClassificationWithLimit(@RequestParam(value = "totalSales") Integer totalSales, @RequestParam(value = "page", defaultValue = "0") Integer page, @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        return typeClassificationService.getMostSellingTypeClassificationWithLimit(totalSales, page, size);
+    }
+
+    @GetMapping(path = "/available", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    public Integer getTypeClassificationAvailableByProduct(@RequestParam(value = "idTypeClassification") Long idTypeClassification) {
+        return typeClassificationService.getTypeClassificationAvailableByProduct(idTypeClassification);
+    }
 }
